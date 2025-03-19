@@ -179,7 +179,7 @@
   <div class="container">
     <div class="share-button">Share me!</div>
 
-    <img id="profileImage" src="img/profileLow.webp" data-highres="img/profile.webp" alt="Meee!" class="profile-image"/>
+    <img id="profileImage" src="img/profileLow.webp" alt="Meee!" class="profile-image"/>
 
     <h1 class="username">
       Master Honza
@@ -251,12 +251,10 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Vytvoříme nový obrázek, který se začne stahovat
       const bgImg = new Image();
-      bgImg.src = "img/background.jpg";
+      bgImg.src = "img/background.webp";
       bgImg.onload = function() {
-        // Když je obrázek načten, aktualizujeme styl elementu
-        document.getElementById("bg").style.backgroundImage = "url('img/background.jpg')";
+        document.getElementById("bg").style.backgroundImage = "url('img/background.webp')";
       };
     });
   </script>
@@ -264,12 +262,11 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const profileImage = document.getElementById("profileImage");
-      const highResSrc = profileImage.getAttribute("data-highres");
+      const highResSrc = "img/profile.webp";
       const highResImage = new Image();
       highResImage.src = highResSrc;
       highResImage.onload = function() {
-        // Přidáme plynulý přechod
-        profileImage.style.transition = 'opacity 0.5s';
+        profileImage.style.transition = 'opacity 0.2s';
         profileImage.style.opacity = '0';
         setTimeout(function() {
           profileImage.src = highResSrc;
