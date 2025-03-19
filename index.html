@@ -178,7 +178,7 @@
   <div class="container">
     <div class="share-button">Share me!</div>
 
-    <img src="img/profile.webp" alt="Meee!" class="profile-image" />
+    <<img id="profileImage" src="img/profileLow.jpg" data-highres="img/profile.jpg" alt="Meee!" class="profile-image" />
 
     <h1 class="username">
       Master Honza
@@ -247,6 +247,26 @@
       </li>
     </ul>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const profileImage = document.getElementById("profileImage");
+      const highResSrc = profileImage.getAttribute("data-highres");
+      const highResImage = new Image();
+      highResImage.src = highResSrc;
+      highResImage.onload = function() {
+        // Přidáme plynulý přechod
+        profileImage.style.transition = 'opacity 0.5s';
+        profileImage.style.opacity = '0';
+        setTimeout(function() {
+          profileImage.src = highResSrc;
+          profileImage.style.opacity = '1';
+        }, 50);
+      };
+    });
+    </script>
+
+    
   <script>
 
     document.querySelector('.share-button').addEventListener('click', function(event){
